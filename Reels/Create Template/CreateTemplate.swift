@@ -4,7 +4,7 @@
 //
 //  Created by Nikita Molodorya on 16.10.2022.
 //
-
+import Photos
 import UIKit
 
 class CreateTemplate: UIViewController {
@@ -24,10 +24,12 @@ class CreateTemplate: UIViewController {
     @IBOutlet weak var two: UIButton!
     @IBOutlet weak var three: UIButton!
     
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         
         
         previewTemplate.layer.cornerRadius = 25
         addMedia.layer.cornerRadius = 25
@@ -38,24 +40,17 @@ class CreateTemplate: UIViewController {
         collectionView.dataSource = self
     }
     
+   
+    
     
     // MARK: - Навигационное меню
     
     var isHaveVideo = true
     @IBAction func closeAction(_ sender: UIBarButtonItem) {
-        
-        if isHaveVideo == true {
-            let alert = UIAlertController(title: "Вы действительно хотите выйти?", message: "У вас есть несохраненное видео", preferredStyle: .alert)
-           
-            alert.addAction(UIAlertAction(title: "Нет", style: .default))
-            
-            alert.addAction(UIAlertAction(title: "Да", style: .destructive))
-            
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            dismiss(animated: true)
-        }
-        
+        let alert = UIAlertController(title: "Вы действительно хотите выйти?", message: "У вас есть несохраненное видео", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Нет", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { _ in self.dismiss(animated: true) }))
+        self.present(alert, animated: true)
     }
     
     
@@ -74,34 +69,41 @@ class CreateTemplate: UIViewController {
     }
     
     
+     
     
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
-        
+       
     }
     
    
-    
+     
     
 
 }
 
 // MARK: - Настройка CollectionView
 extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         
+        print(indexPath.row)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath) as! TemplateCell
         
         cell.layer.cornerRadius = 25
         
+        cell.secounds.text = "\(indexPath.row).6"
+        
         return cell
     }
-    
-   
-    
-    
-    
+  
 }
+
+
+ 
