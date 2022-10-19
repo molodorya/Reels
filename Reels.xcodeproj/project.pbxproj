@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		821F5B4028FFF992004B8164 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F5B3F28FFF992004B8164 /* Settings.swift */; };
+		821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F5B4128FFFF37004B8164 /* MyTemplate.swift */; };
 		82480DF128F6D6D000B3689C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF028F6D6D000B3689C /* AppDelegate.swift */; };
 		82480DF328F6D6D000B3689C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF228F6D6D000B3689C /* SceneDelegate.swift */; };
 		82480DF528F6D6D000B3689C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF428F6D6D000B3689C /* Main.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		821F5B3F28FFF992004B8164 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		821F5B4128FFFF37004B8164 /* MyTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTemplate.swift; sourceTree = "<group>"; };
 		82480DED28F6D6D000B3689C /* Reels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82480DF028F6D6D000B3689C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82480DF228F6D6D000B3689C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				82480DF228F6D6D000B3689C /* SceneDelegate.swift */,
 				82480DF428F6D6D000B3689C /* Main.swift */,
 				82EABBDD28F9B6FC00322276 /* TrendingsAll.swift */,
+				821F5B4128FFFF37004B8164 /* MyTemplate.swift */,
 				821F5B3F28FFF992004B8164 /* Settings.swift */,
 				8296A6A628FB8C490096B1B0 /* Create Template */,
 				82480DF628F6D6D000B3689C /* Main.storyboard */,
@@ -163,6 +166,7 @@
 				8290921928FB59D50051AB07 /* CreateTemplate.swift in Sources */,
 				82480DF528F6D6D000B3689C /* Main.swift in Sources */,
 				821F5B4028FFF992004B8164 /* Settings.swift in Sources */,
+				821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */,
 				82480DF128F6D6D000B3689C /* AppDelegate.swift in Sources */,
 				82480DF328F6D6D000B3689C /* SceneDelegate.swift in Sources */,
 			);
