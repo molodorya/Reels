@@ -166,6 +166,135 @@
             </objects>
             <point key="canvasLocation" x="-2698" y="704"/>
         </scene>
+        <!--Buy Subscribe-->
+        <scene sceneID="UmY-oY-wQN">
+            <objects>
+                <viewController id="Dye-Dy-ato" customClass="BuySubscribe" customModule="Reels" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vlB-fS-LXS">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kz5-wo-jAn">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-rN-hcl">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Текст подписки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYQ-Hf-g4y">
+                                                <rect key="frame" x="95" y="50" width="201" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Описание подписки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAW-V0-50Z">
+                                                <rect key="frame" x="20" y="100" width="350" height="109"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9G0-sW-WcT">
+                                                <rect key="frame" x="20" y="552" width="350" height="63"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Месяц премиум доступа 365 ₽ ">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iC2-wt-xnu">
+                                                <rect key="frame" x="20" y="625" width="350" height="63"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Год премиум доступа 3 650 ₽ ">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-t0-Uca">
+                                                <rect key="frame" x="20" y="219" width="155" height="275"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NO4-9C-WLg">
+                                                <rect key="frame" x="185" y="219" width="155" height="275"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-H5-rue">
+                                                <rect key="frame" x="350" y="219" width="155" height="275"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxH-HZ-6Rc">
+                                                <rect key="frame" x="20" y="772" width="67" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="EULA"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70I-4x-U0s">
+                                                <rect key="frame" x="289" y="772" width="81" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="EULA 3"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljB-Nj-cwP">
+                                                <rect key="frame" x="20" y="701" width="350" height="63"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Восстановить покупки">
+                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXu-CX-K2D">
+                                                <rect key="frame" x="155" y="772" width="81" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="EULA 2"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="qUP-pA-RBc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VRi-rN-hcl" firstAttribute="bottom" secondItem="9Lk-J1-UrU" secondAttribute="bottom" id="9jT-iK-Dp2"/>
+                                    <constraint firstItem="VRi-rN-hcl" firstAttribute="width" secondItem="hI9-KT-L4A" secondAttribute="width" id="E8b-aW-yt4"/>
+                                    <constraint firstItem="VRi-rN-hcl" firstAttribute="trailing" secondItem="9Lk-J1-UrU" secondAttribute="trailing" id="NmZ-5V-mqU"/>
+                                    <constraint firstItem="9Lk-J1-UrU" firstAttribute="top" secondItem="VRi-rN-hcl" secondAttribute="top" id="hJa-Vk-sFw"/>
+                                    <constraint firstItem="VRi-rN-hcl" firstAttribute="leading" secondItem="9Lk-J1-UrU" secondAttribute="leading" id="jBC-LK-UTi"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="9Lk-J1-UrU"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="hI9-KT-L4A"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wb6-Xz-s0Q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kz5-wo-jAn" firstAttribute="top" secondItem="vlB-fS-LXS" secondAttribute="top" id="9cW-eR-s0R"/>
+                            <constraint firstItem="kz5-wo-jAn" firstAttribute="leading" secondItem="Wb6-Xz-s0Q" secondAttribute="leading" id="iy9-of-Hr4"/>
+                            <constraint firstAttribute="bottom" secondItem="kz5-wo-jAn" secondAttribute="bottom" id="r9A-th-sdD"/>
+                            <constraint firstItem="kz5-wo-jAn" firstAttribute="trailing" secondItem="Wb6-Xz-s0Q" secondAttribute="trailing" id="w1A-YI-QVb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="H0P-zA-nS0">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="multiply" catalog="system" id="G0u-pB-82z">
+                            <connections>
+                                <action selector="close:" destination="Dye-Dy-ato" id="8Pw-DG-MpT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Right button" id="FMi-tG-vKy"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjj-vh-VJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1726.1538461538462" y="1555.4502369668246"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="MQa-LH-eaJ">
             <objects>
@@ -213,6 +342,15 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vn8-gf-ENF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                        <connections>
+                                                            <segue destination="ZuK-Ma-7EC" kind="presentation" modalPresentationStyle="fullScreen" id="Ihm-3l-ufy"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 <constraints>
@@ -436,7 +574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1z9-ii-vkw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885" y="1459"/>
+            <point key="canvasLocation" x="1813.8461538461538" y="1458.7677725118483"/>
         </scene>
         <!--Trendings All-->
         <scene sceneID="rsU-gb-khi">
@@ -485,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qq-ca-Kcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330.7692307692305" y="1458.7677725118483"/>
+            <point key="canvasLocation" x="3258.4615384615386" y="1458.7677725118483"/>
         </scene>
         <!--Trending-->
         <scene sceneID="y1M-VW-ec2">
@@ -642,7 +780,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTn-ES-oTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="1459"/>
+            <point key="canvasLocation" x="930.76923076923072" y="1458.7677725118483"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="53L-rH-YlI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZuK-Ma-7EC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="OZb-lr-ywW"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tib-NQ-uPo">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dye-Dy-ato" kind="relationship" relationship="rootViewController" id="fNM-v1-yKN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SoX-95-SLg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2655.3846153846152" y="1555.4502369668246"/>
         </scene>
     </scenes>
     <resources>
@@ -658,6 +815,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820ABD9F2901F753007365D3 /* BuySubscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820ABD9E2901F753007365D3 /* BuySubscribe.swift */; };
 		821F5B4028FFF992004B8164 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F5B3F28FFF992004B8164 /* Settings.swift */; };
 		821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F5B4128FFFF37004B8164 /* MyTemplate.swift */; };
 		82480DF128F6D6D000B3689C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF028F6D6D000B3689C /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		820ABD9E2901F753007365D3 /* BuySubscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySubscribe.swift; sourceTree = "<group>"; };
 		821F5B3F28FFF992004B8164 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		821F5B4128FFFF37004B8164 /* MyTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTemplate.swift; sourceTree = "<group>"; };
 		82480DED28F6D6D000B3689C /* Reels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reels.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820ABD9D2901F726007365D3 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				820ABD9E2901F753007365D3 /* BuySubscribe.swift */,
+			);
+			path = Subscribe;
+			sourceTree = "<group>";
+		};
 		82480DE428F6D6D000B3689C = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 				821F5B4128FFFF37004B8164 /* MyTemplate.swift */,
 				821F5B3F28FFF992004B8164 /* Settings.swift */,
 				8296A6A628FB8C490096B1B0 /* Create Template */,
+				820ABD9D2901F726007365D3 /* Subscribe */,
 				82480DF628F6D6D000B3689C /* Main.storyboard */,
 				82480DF928F6D6D200B3689C /* Assets.xcassets */,
 				82480DFB28F6D6D200B3689C /* LaunchScreen.storyboard */,
@@ -169,6 +180,7 @@
 				821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */,
 				82480DF128F6D6D000B3689C /* AppDelegate.swift in Sources */,
 				82480DF328F6D6D000B3689C /* SceneDelegate.swift in Sources */,
+				820ABD9F2901F753007365D3 /* BuySubscribe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
