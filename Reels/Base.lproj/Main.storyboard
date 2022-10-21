@@ -51,13 +51,10 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="o2dvsv2pnhe" translatesAutoresizingMaskIntoConstraints="NO" id="bcq-QZ-Bmp">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwy-8T-OAI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="120" id="CIh-8j-I6T"/>
-                                                                        <constraint firstAttribute="height" constant="200" id="LIQ-oH-tbW"/>
-                                                                    </constraints>
-                                                                </imageView>
+                                                                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                                </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-mT-7X8">
                                                                     <rect key="frame" x="10" y="175.66666666666666" width="71" height="14.333333333333343"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
@@ -66,16 +63,17 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="bcq-QZ-Bmp" secondAttribute="trailing" id="5B0-fq-wE3"/>
                                                                 <constraint firstItem="pkG-mT-7X8" firstAttribute="leading" secondItem="ibP-t9-YHS" secondAttribute="leading" constant="10" id="7WY-ea-1ZL"/>
-                                                                <constraint firstItem="bcq-QZ-Bmp" firstAttribute="top" secondItem="ibP-t9-YHS" secondAttribute="top" id="D7E-4t-cru"/>
-                                                                <constraint firstItem="bcq-QZ-Bmp" firstAttribute="leading" secondItem="ibP-t9-YHS" secondAttribute="leading" id="LvK-AA-UWw"/>
-                                                                <constraint firstAttribute="bottom" secondItem="bcq-QZ-Bmp" secondAttribute="bottom" id="TJS-zT-KzP"/>
+                                                                <constraint firstItem="bwy-8T-OAI" firstAttribute="top" secondItem="ibP-t9-YHS" secondAttribute="top" id="YwX-ED-Wza"/>
+                                                                <constraint firstAttribute="trailing" secondItem="bwy-8T-OAI" secondAttribute="trailing" id="baO-bZ-kcE"/>
                                                                 <constraint firstAttribute="bottom" secondItem="pkG-mT-7X8" secondAttribute="bottom" constant="10" id="e3m-tP-8Oe"/>
+                                                                <constraint firstAttribute="bottom" secondItem="bwy-8T-OAI" secondAttribute="bottom" id="kIU-5c-1JB"/>
+                                                                <constraint firstItem="bwy-8T-OAI" firstAttribute="leading" secondItem="ibP-t9-YHS" secondAttribute="leading" id="zxG-Ne-LX7"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                         <connections>
+                                                            <outlet property="displayCell" destination="bwy-8T-OAI" id="UlD-Ue-yJP"/>
                                                             <outlet property="nameVideo" destination="pkG-mT-7X8" id="VwE-zz-ij7"/>
                                                             <segue destination="KmI-re-FDN" kind="presentation" modalPresentationStyle="overFullScreen" id="2Mj-uQ-uqM"/>
                                                         </connections>
@@ -140,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="1100"/>
+            <point key="canvasLocation" x="1867.6923076923076" y="1099.0521327014217"/>
         </scene>
         <!--History-->
         <scene sceneID="xzL-2W-1du">
@@ -247,10 +245,13 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                             </button>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-t0-Uca">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-t0-Uca">
                                                 <rect key="frame" x="20" y="219" width="155" height="275"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="275" id="YnR-m1-we2"/>
+                                                    <constraint firstAttribute="width" constant="155" id="p5Q-Pl-BVW"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NO4-9C-WLg">
                                                 <rect key="frame" x="185" y="219" width="155" height="275"/>
@@ -292,6 +293,8 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="JSp-t0-Uca" firstAttribute="leading" secondItem="VRi-rN-hcl" secondAttribute="leading" constant="20" symbolic="YES" id="WHy-FB-wwY"/>
+                                            <constraint firstItem="JSp-t0-Uca" firstAttribute="top" secondItem="VRi-rN-hcl" secondAttribute="top" constant="219" id="h92-S1-h1m"/>
                                             <constraint firstAttribute="height" constant="1000" id="qUP-pA-RBc"/>
                                         </constraints>
                                     </view>
@@ -324,6 +327,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Right button" id="FMi-tG-vKy"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="videoView" destination="JSp-t0-Uca" id="XVC-gK-pPM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjj-vh-VJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1001,7 +1007,6 @@
         <image name="gobackward" catalog="system" width="119" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <image name="o2dvsv2pnhe" width="800" height="1200"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="opaqueSeparatorColor">
