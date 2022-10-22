@@ -15,7 +15,11 @@ class Main: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-   
+   let urls = ["https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4"]
+    
+    
+    // Пользоваться делегатами надо, а не статиком
+   static var selectedUrl = ""
    
 
     override func viewDidLoad() {
@@ -48,7 +52,12 @@ extension Main: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return urls.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Main.selectedUrl = urls[indexPath.row]
     }
     
     
@@ -57,42 +66,22 @@ extension Main: UICollectionViewDelegate, UICollectionViewDataSource {
         
         cell.nameVideo.text = "Video №\(indexPath.row)"
         cell.layer.cornerRadius = 25
+ 
+        cell.displayCell.backgroundColor = .systemGray6
         
-       // Повторяет видео после того как оно закончилось
-        func loopVideo(videoPlayer: AVPlayer) {
-          NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in
-            videoPlayer.seek(to: .zero)
-            videoPlayer.play()
-          }
-        }
+      
         
-        switch indexPath.row {
-            
-            case 0:
-            let videoURL = URL(string: "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3")
-            let player = AVPlayer(url: videoURL!)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = cell.displayCell.bounds
-            cell.displayCell.layer.addSublayer(playerLayer)
-            player.volume = 0
-          
-            loopVideo(videoPlayer: player)
-            player.play()
-            
-            case 1:
-            let videoURL = URL(string: "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4")
-            let player = AVPlayer(url: videoURL!)
-            let playerLayer = AVPlayerLayer(player: player)
-
-            playerLayer.frame = cell.displayCell.bounds
-            cell.displayCell.layer.addSublayer(playerLayer)
-            player.volume = 0
-            
-            loopVideo(videoPlayer: player)
-            player.play()
-        default:
-            break
-        }
+        
+        let videoURL = URL(string: urls[indexPath.row])
+        let player = AVPlayer(url: videoURL!)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = .resizeAspectFill
+        playerLayer.frame = cell.displayCell.bounds
+        cell.displayCell.layer.addSublayer(playerLayer)
+        player.volume = 0
+      
+        loopVideo(videoPlayer: player)
+        player.play()
        
         
         
@@ -103,5 +92,6 @@ extension Main: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
 }
+
 
 

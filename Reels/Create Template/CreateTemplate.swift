@@ -7,7 +7,7 @@
 import Photos
 import UIKit
 
-class CreateTemplate: UIViewController {
+class CreateTemplate: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
     // MARK: - Навигационное меню
@@ -30,7 +30,7 @@ class CreateTemplate: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         
+         downloadVideoAndShow()
         
         previewTemplate.layer.cornerRadius = 25
         addMedia.layer.cornerRadius = 25
@@ -39,6 +39,22 @@ class CreateTemplate: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    
+    func downloadVideoAndShow() {
+        let videoURL = URL(string: Main.selectedUrl)
+        let player = AVPlayer(url: videoURL!)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = .resizeAspectFill
+        playerLayer.frame = previewTemplate.bounds
+        playerLayer.cornerRadius = 25
+        previewTemplate.layer.addSublayer(playerLayer)
+//        player.volume = 1
+       
+        
+        loopVideo(videoPlayer: player)
+        player.play()
     }
     
    
@@ -100,6 +116,26 @@ extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+               var imagePicker = UIImagePickerController()
+               imagePicker.delegate = self
+               imagePicker.sourceType = .photoLibrary;
+               imagePicker.allowsEditing = true
+               self.present(imagePicker, animated: true, completion: nil)
+           }
+        
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
+           
+           
+            print(image)
+            previewImage.image = image
+            
+            
+            dismiss(animated:true, completion: nil)
+        }
          
         print(indexPath.row)
     }
@@ -202,4 +238,15 @@ class ImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigatio
     @objc func imagePickerController(_ picker: UIImagePickerController, pickedImage: UIImage?) {
     }
 
+}
+
+
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: image!.cgImage!)
+    }
 }

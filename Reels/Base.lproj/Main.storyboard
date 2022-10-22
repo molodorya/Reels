@@ -81,7 +81,7 @@
                                                 </cells>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvL-De-kNx">
-                                                <rect key="frame" x="286" y="30" width="74" height="35"/>
+                                                <rect key="frame" x="296" y="30" width="74" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="See all"/>
                                                 <connections>
@@ -94,7 +94,7 @@
                                             <constraint firstAttribute="height" constant="1000" id="Ds8-Xt-kNY"/>
                                             <constraint firstAttribute="trailing" secondItem="FYp-5V-vbs" secondAttribute="trailing" id="FOT-Sf-bam"/>
                                             <constraint firstItem="FYp-5V-vbs" firstAttribute="leading" secondItem="0SN-Kf-iFd" secondAttribute="leading" id="HMy-P1-scx"/>
-                                            <constraint firstAttribute="trailing" secondItem="yvL-De-kNx" secondAttribute="trailing" constant="30" id="JcW-0H-VeI"/>
+                                            <constraint firstAttribute="trailing" secondItem="yvL-De-kNx" secondAttribute="trailing" constant="20" id="JcW-0H-VeI"/>
                                             <constraint firstItem="yvL-De-kNx" firstAttribute="top" secondItem="0SN-Kf-iFd" secondAttribute="top" constant="30" id="VD1-as-P4O"/>
                                             <constraint firstItem="FYp-5V-vbs" firstAttribute="top" secondItem="D8j-5A-qUj" secondAttribute="bottom" constant="30" id="b3v-7V-3ar"/>
                                             <constraint firstItem="D8j-5A-qUj" firstAttribute="top" secondItem="0SN-Kf-iFd" secondAttribute="top" constant="30" id="cHl-L5-OLa"/>
@@ -333,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjj-vh-VJJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3103" y="-97"/>
+            <point key="canvasLocation" x="-3438" y="-97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MQa-LH-eaJ">
@@ -598,20 +598,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uM2-3m-ucv">
                                 <rect key="frame" x="65" y="91" width="260" height="400"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-Tw-RuI">
-                                        <rect key="frame" x="10" y="80" width="240" height="240"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="240" id="0Jb-dH-Rz1"/>
-                                            <constraint firstAttribute="width" constant="240" id="jEx-QK-Tb1"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstItem="Abz-Tw-RuI" firstAttribute="centerX" secondItem="uM2-3m-ucv" secondAttribute="centerX" id="DxF-Wd-Gog"/>
                                     <constraint firstAttribute="height" constant="400" id="Uk4-6T-FsO"/>
-                                    <constraint firstItem="Abz-Tw-RuI" firstAttribute="centerY" secondItem="uM2-3m-ucv" secondAttribute="centerY" id="wp5-0F-l9r"/>
                                     <constraint firstAttribute="width" constant="260" id="xWB-oz-K2q"/>
                                 </constraints>
                             </view>
@@ -701,6 +690,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Abz-Tw-RuI">
+                                <rect key="frame" x="75" y="401" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="0Jb-dH-Rz1"/>
+                                    <constraint firstAttribute="width" constant="240" id="jEx-QK-Tb1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SLu-3J-u7c"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -709,8 +706,11 @@
                             <constraint firstItem="uM2-3m-ucv" firstAttribute="centerX" secondItem="M1f-YD-bDP" secondAttribute="centerX" id="A9g-Nd-NLp"/>
                             <constraint firstItem="mLo-sx-bdA" firstAttribute="centerX" secondItem="M1f-YD-bDP" secondAttribute="centerX" id="CSs-uG-8zn"/>
                             <constraint firstItem="3R8-UO-tul" firstAttribute="top" secondItem="CEy-Ll-09G" secondAttribute="bottom" constant="25" id="Cd8-7y-qiT"/>
+                            <constraint firstItem="SLu-3J-u7c" firstAttribute="trailing" secondItem="Abz-Tw-RuI" secondAttribute="trailing" constant="75" id="Pym-sx-J4s"/>
+                            <constraint firstItem="Abz-Tw-RuI" firstAttribute="leading" secondItem="SLu-3J-u7c" secondAttribute="leading" constant="75" id="T2N-4C-LkD"/>
                             <constraint firstItem="CEy-Ll-09G" firstAttribute="top" secondItem="mLo-sx-bdA" secondAttribute="bottom" constant="35" id="VnX-aS-XDC"/>
                             <constraint firstItem="JGK-FP-scH" firstAttribute="leading" secondItem="UJ6-Sg-eg9" secondAttribute="trailing" constant="15" id="XUf-8h-U59"/>
+                            <constraint firstItem="3R8-UO-tul" firstAttribute="top" secondItem="Abz-Tw-RuI" secondAttribute="bottom" constant="101" id="axx-HZ-yvf"/>
                             <constraint firstItem="3R8-UO-tul" firstAttribute="leading" secondItem="SLu-3J-u7c" secondAttribute="leading" constant="20" id="dfj-lQ-Mof"/>
                             <constraint firstItem="UJ6-Sg-eg9" firstAttribute="top" secondItem="CEy-Ll-09G" secondAttribute="bottom" constant="25" id="kvp-QY-dKa"/>
                             <constraint firstItem="UJ6-Sg-eg9" firstAttribute="leading" secondItem="3R8-UO-tul" secondAttribute="trailing" constant="15" id="nlf-ii-LSg"/>
@@ -804,7 +804,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5qq-ca-Kcn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="1100"/>
+            <point key="canvasLocation" x="2777" y="1099"/>
         </scene>
         <!--Trending-->
         <scene sceneID="y1M-VW-ec2">
@@ -980,7 +980,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoX-95-SLg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2391" y="-97"/>
+            <point key="canvasLocation" x="-2762" y="-97"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eSd-IH-S7n">
@@ -1011,6 +1011,9 @@
         <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
