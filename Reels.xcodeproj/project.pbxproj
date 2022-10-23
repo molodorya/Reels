@@ -16,8 +16,9 @@
 		82480DF828F6D6D000B3689C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82480DF628F6D6D000B3689C /* Main.storyboard */; };
 		82480DFA28F6D6D200B3689C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82480DF928F6D6D200B3689C /* Assets.xcassets */; };
 		82480DFD28F6D6D200B3689C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82480DFB28F6D6D200B3689C /* LaunchScreen.storyboard */; };
-		8290921928FB59D50051AB07 /* CreateTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290921828FB59D50051AB07 /* CreateTemplate.swift */; };
+		8290921928FB59D50051AB07 /* ChangeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290921828FB59D50051AB07 /* ChangeTemplate.swift */; };
 		8296A6A828FB8C6B0096B1B0 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */; };
+		82C25885290543B8003E5CF0 /* CreateTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C25884290543B8003E5CF0 /* CreateTemplate.swift */; };
 		82D0556529047685009EBDB3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D0556429047684009EBDB3 /* Extensions.swift */; };
 		82E2C0D929031CE7005564AE /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E2C0D829031CE6005564AE /* History.swift */; };
 		82E2C0DC29031E17005564AE /* HistoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E2C0DB29031E17005564AE /* HistoryCollectionCell.swift */; };
@@ -36,8 +37,9 @@
 		82480DF928F6D6D200B3689C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82480DFC28F6D6D200B3689C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82480DFE28F6D6D200B3689C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8290921828FB59D50051AB07 /* CreateTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTemplate.swift; sourceTree = "<group>"; };
+		8290921828FB59D50051AB07 /* ChangeTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTemplate.swift; sourceTree = "<group>"; };
 		8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
+		82C25884290543B8003E5CF0 /* CreateTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTemplate.swift; sourceTree = "<group>"; };
 		82D0556429047684009EBDB3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		82E2C0D829031CE6005564AE /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		82E2C0DB29031E17005564AE /* HistoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionCell.swift; sourceTree = "<group>"; };
@@ -86,11 +88,12 @@
 				82480DF228F6D6D000B3689C /* SceneDelegate.swift */,
 				82480DF428F6D6D000B3689C /* Main.swift */,
 				82D0556429047684009EBDB3 /* Extensions.swift */,
+				82C2588629054712003E5CF0 /* Create Template */,
 				82EABBDD28F9B6FC00322276 /* TrendingsAll.swift */,
 				821F5B4128FFFF37004B8164 /* MyTemplate.swift */,
 				821F5B3F28FFF992004B8164 /* Settings.swift */,
 				82E2C0DA29031DFB005564AE /* History */,
-				8296A6A628FB8C490096B1B0 /* Create Template */,
+				8296A6A628FB8C490096B1B0 /* Change Template */,
 				820ABD9D2901F726007365D3 /* Subscribe */,
 				82480DF628F6D6D000B3689C /* Main.storyboard */,
 				82480DF928F6D6D200B3689C /* Assets.xcassets */,
@@ -100,11 +103,19 @@
 			path = Reels;
 			sourceTree = "<group>";
 		};
-		8296A6A628FB8C490096B1B0 /* Create Template */ = {
+		8296A6A628FB8C490096B1B0 /* Change Template */ = {
 			isa = PBXGroup;
 			children = (
-				8290921828FB59D50051AB07 /* CreateTemplate.swift */,
+				8290921828FB59D50051AB07 /* ChangeTemplate.swift */,
 				8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */,
+			);
+			path = "Change Template";
+			sourceTree = "<group>";
+		};
+		82C2588629054712003E5CF0 /* Create Template */ = {
+			isa = PBXGroup;
+			children = (
+				82C25884290543B8003E5CF0 /* CreateTemplate.swift */,
 			);
 			path = "Create Template";
 			sourceTree = "<group>";
@@ -191,8 +202,9 @@
 			files = (
 				82EABBDE28F9B6FC00322276 /* TrendingsAll.swift in Sources */,
 				8296A6A828FB8C6B0096B1B0 /* TemplateCell.swift in Sources */,
-				8290921928FB59D50051AB07 /* CreateTemplate.swift in Sources */,
+				8290921928FB59D50051AB07 /* ChangeTemplate.swift in Sources */,
 				82480DF528F6D6D000B3689C /* Main.swift in Sources */,
+				82C25885290543B8003E5CF0 /* CreateTemplate.swift in Sources */,
 				82E2C0D929031CE7005564AE /* History.swift in Sources */,
 				821F5B4028FFF992004B8164 /* Settings.swift in Sources */,
 				821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */,
