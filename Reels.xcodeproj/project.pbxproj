@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		820ABD9F2901F753007365D3 /* BuySubscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820ABD9E2901F753007365D3 /* BuySubscribe.swift */; };
+		821C54AE29070A0400A9A3BE /* TrendingsAllCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C54AD29070A0400A9A3BE /* TrendingsAllCell.swift */; };
+		821C54B029070B7A00A9A3BE /* MyTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C54AF29070B7A00A9A3BE /* MyTemplates.swift */; };
+		821C54B329070BEA00A9A3BE /* MyTemplatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821C54B229070BEA00A9A3BE /* MyTemplatesCell.swift */; };
 		821F5B4028FFF992004B8164 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F5B3F28FFF992004B8164 /* Settings.swift */; };
-		821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821F5B4128FFFF37004B8164 /* MyTemplate.swift */; };
 		82480DF128F6D6D000B3689C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF028F6D6D000B3689C /* AppDelegate.swift */; };
 		82480DF328F6D6D000B3689C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF228F6D6D000B3689C /* SceneDelegate.swift */; };
 		82480DF528F6D6D000B3689C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82480DF428F6D6D000B3689C /* Main.swift */; };
@@ -27,8 +29,10 @@
 
 /* Begin PBXFileReference section */
 		820ABD9E2901F753007365D3 /* BuySubscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySubscribe.swift; sourceTree = "<group>"; };
+		821C54AD29070A0400A9A3BE /* TrendingsAllCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingsAllCell.swift; sourceTree = "<group>"; };
+		821C54AF29070B7A00A9A3BE /* MyTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTemplates.swift; sourceTree = "<group>"; };
+		821C54B229070BEA00A9A3BE /* MyTemplatesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTemplatesCell.swift; sourceTree = "<group>"; };
 		821F5B3F28FFF992004B8164 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		821F5B4128FFFF37004B8164 /* MyTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTemplate.swift; sourceTree = "<group>"; };
 		82480DED28F6D6D000B3689C /* Reels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82480DF028F6D6D000B3689C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82480DF228F6D6D000B3689C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,24 @@
 			path = Subscribe;
 			sourceTree = "<group>";
 		};
+		821C54AC290709E000A9A3BE /* Trendings All */ = {
+			isa = PBXGroup;
+			children = (
+				82EABBDD28F9B6FC00322276 /* TrendingsAll.swift */,
+				821C54AD29070A0400A9A3BE /* TrendingsAllCell.swift */,
+			);
+			path = "Trendings All";
+			sourceTree = "<group>";
+		};
+		821C54B129070B7D00A9A3BE /* My templates */ = {
+			isa = PBXGroup;
+			children = (
+				821C54AF29070B7A00A9A3BE /* MyTemplates.swift */,
+				821C54B229070BEA00A9A3BE /* MyTemplatesCell.swift */,
+			);
+			path = "My templates";
+			sourceTree = "<group>";
+		};
 		82480DE428F6D6D000B3689C = {
 			isa = PBXGroup;
 			children = (
@@ -88,9 +110,9 @@
 				82480DF228F6D6D000B3689C /* SceneDelegate.swift */,
 				82480DF428F6D6D000B3689C /* Main.swift */,
 				82D0556429047684009EBDB3 /* Extensions.swift */,
+				821C54B129070B7D00A9A3BE /* My templates */,
 				82C2588629054712003E5CF0 /* Create Template */,
-				82EABBDD28F9B6FC00322276 /* TrendingsAll.swift */,
-				821F5B4128FFFF37004B8164 /* MyTemplate.swift */,
+				821C54AC290709E000A9A3BE /* Trendings All */,
 				821F5B3F28FFF992004B8164 /* Settings.swift */,
 				82E2C0DA29031DFB005564AE /* History */,
 				8296A6A628FB8C490096B1B0 /* Change Template */,
@@ -206,12 +228,14 @@
 				82480DF528F6D6D000B3689C /* Main.swift in Sources */,
 				82C25885290543B8003E5CF0 /* CreateTemplate.swift in Sources */,
 				82E2C0D929031CE7005564AE /* History.swift in Sources */,
+				821C54B329070BEA00A9A3BE /* MyTemplatesCell.swift in Sources */,
 				821F5B4028FFF992004B8164 /* Settings.swift in Sources */,
-				821F5B4228FFFF37004B8164 /* MyTemplate.swift in Sources */,
 				82D0556529047685009EBDB3 /* Extensions.swift in Sources */,
 				82480DF128F6D6D000B3689C /* AppDelegate.swift in Sources */,
 				82480DF328F6D6D000B3689C /* SceneDelegate.swift in Sources */,
 				82E2C0DC29031E17005564AE /* HistoryCollectionCell.swift in Sources */,
+				821C54B029070B7A00A9A3BE /* MyTemplates.swift in Sources */,
+				821C54AE29070A0400A9A3BE /* TrendingsAllCell.swift in Sources */,
 				820ABD9F2901F753007365D3 /* BuySubscribe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
