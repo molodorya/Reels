@@ -122,27 +122,30 @@ extension ChangeTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-               let imagePicker = UIImagePickerController()
-               imagePicker.delegate = self
-               imagePicker.sourceType = .photoLibrary;
-               imagePicker.allowsEditing = true
-               self.present(imagePicker, animated: true, completion: nil)
-           }
         
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-            let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
-           
-           
-            print(image)
-            
-            
-            
-            dismiss(animated:true, completion: nil)
-        }
-         
-        print(indexPath.row)
+        
+//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//               let imagePicker = UIImagePickerController()
+//               imagePicker.delegate = self
+//               imagePicker.sourceType = .photoLibrary;
+//               imagePicker.allowsEditing = true
+//               self.present(imagePicker, animated: true, completion: nil)
+//           }
+//
+//
+//        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//            let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
+//
+//
+//            print(image)
+//
+//
+//
+//            dismiss(animated:true, completion: nil)
+//        }
+//
+//        print(indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

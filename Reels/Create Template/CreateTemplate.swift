@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CreateTemplate: UIViewController {
+    
+    
+   
+  
     
     @IBOutlet weak var like: UIBarButtonItem!
     
@@ -24,7 +29,10 @@ class CreateTemplate: UIViewController {
         collectionView.dataSource = self
         
         
-        
+//        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { Timer in
+//            self.collectionView.reloadData()
+//            print(123234)
+//        }
        
     }
     
@@ -47,8 +55,6 @@ class CreateTemplate: UIViewController {
     
     @IBAction func saveAction(_ sender: UIBarButtonItem) {
       
-         
-       
          let activity = UIActivityViewController(
            activityItems: ["Название видео..."],
            applicationActivities: nil
@@ -69,11 +75,34 @@ extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
         return 20
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VideoMain") as! VideoMain
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath) as! CreateTemplateCell
         cell.layer.cornerRadius = 25
-        
+     
+ 
+        if VideoMain.asset != nil {
+            let player = AVPlayer(playerItem: AVPlayerItem(asset: VideoMain.asset))
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = .resizeAspectFill
+            playerLayer.frame = cell.displayCell.bounds
+            cell.displayCell.layer.addSublayer(playerLayer)
+            player.volume = 0
+
+            loopVideo(videoPlayer: player)
+            player.play()
+        }
+       
+       
+ 
         return cell
+        
+      
     }
     
     

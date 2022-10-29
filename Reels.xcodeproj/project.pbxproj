@@ -22,6 +22,7 @@
 		82480DFD28F6D6D200B3689C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82480DFB28F6D6D200B3689C /* LaunchScreen.storyboard */; };
 		8290921928FB59D50051AB07 /* ChangeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290921828FB59D50051AB07 /* ChangeTemplate.swift */; };
 		8296A6A828FB8C6B0096B1B0 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */; };
+		82AABC5E290D8AC400F7AD65 /* CreateTemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AABC5D290D8AC400F7AD65 /* CreateTemplateCell.swift */; };
 		82C25885290543B8003E5CF0 /* CreateTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C25884290543B8003E5CF0 /* CreateTemplate.swift */; };
 		82C856F72908A07700528D90 /* VideoMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C856F62908A07700528D90 /* VideoMain.swift */; };
 		82C856F92909DD6D00528D90 /* test.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82C856F82909DD6D00528D90 /* test.mov */; };
@@ -51,6 +52,7 @@
 		82480DFE28F6D6D200B3689C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8290921828FB59D50051AB07 /* ChangeTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTemplate.swift; sourceTree = "<group>"; };
 		8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
+		82AABC5D290D8AC400F7AD65 /* CreateTemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTemplateCell.swift; sourceTree = "<group>"; };
 		82C25884290543B8003E5CF0 /* CreateTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTemplate.swift; sourceTree = "<group>"; };
 		82C856F62908A07700528D90 /* VideoMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMain.swift; sourceTree = "<group>"; };
 		82C856F82909DD6D00528D90 /* test.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = test.mov; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 				82480DF028F6D6D000B3689C /* AppDelegate.swift */,
 				82480DF228F6D6D000B3689C /* SceneDelegate.swift */,
 				82480DF428F6D6D000B3689C /* Main.swift */,
-				82C856FC2909E11000528D90 /* TrimVideo */,
+				82C856FC2909E11000528D90 /* Trim Video */,
 				82D0556429047684009EBDB3 /* Extensions.swift */,
 				821C54B129070B7D00A9A3BE /* My templates */,
 				82C2588629054712003E5CF0 /* Create Template */,
@@ -156,17 +158,18 @@
 			isa = PBXGroup;
 			children = (
 				82C25884290543B8003E5CF0 /* CreateTemplate.swift */,
+				82AABC5D290D8AC400F7AD65 /* CreateTemplateCell.swift */,
 			);
 			path = "Create Template";
 			sourceTree = "<group>";
 		};
-		82C856FC2909E11000528D90 /* TrimVideo */ = {
+		82C856FC2909E11000528D90 /* Trim Video */ = {
 			isa = PBXGroup;
 			children = (
 				82C856F62908A07700528D90 /* VideoMain.swift */,
 				82C856FA2909E10C00528D90 /* RangeSlider.swift */,
 			);
-			path = TrimVideo;
+			path = "Trim Video";
 			sourceTree = "<group>";
 		};
 		82E2C0DA29031DFB005564AE /* History */ = {
@@ -316,6 +319,7 @@
 				8290921928FB59D50051AB07 /* ChangeTemplate.swift in Sources */,
 				82480DF528F6D6D000B3689C /* Main.swift in Sources */,
 				82C856FB2909E10C00528D90 /* RangeSlider.swift in Sources */,
+				82AABC5E290D8AC400F7AD65 /* CreateTemplateCell.swift in Sources */,
 				82C25885290543B8003E5CF0 /* CreateTemplate.swift in Sources */,
 				82E2C0D929031CE7005564AE /* History.swift in Sources */,
 				821C54B329070BEA00A9A3BE /* MyTemplatesCell.swift in Sources */,
