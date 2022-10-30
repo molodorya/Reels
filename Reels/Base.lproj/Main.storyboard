@@ -688,8 +688,8 @@
                                     <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your template" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tr3-PL-bVA">
-                                <rect key="frame" x="129" y="523" width="172" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use as template" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tr3-PL-bVA">
+                                <rect key="frame" x="149.66666666666666" y="523" width="130.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -945,8 +945,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use as template" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdU-nV-PSi">
-                                <rect key="frame" x="149.66666666666666" y="523" width="130.99999999999997" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your template" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdU-nV-PSi">
+                                <rect key="frame" x="129" y="523" width="172" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1024,6 +1024,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6RM-il-F9A">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="Fc1-Vr-Hko">
+                            <connections>
+                                <action selector="trashAction:" destination="BTT-Ut-l6h" id="DtB-tm-99v"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="square.and.arrow.down" catalog="system" id="Zk4-Lc-cFf">
                                 <connections>
@@ -1041,6 +1046,7 @@
                         <outlet property="collectionView" destination="A7b-Uy-zFl" id="vck-fT-kZv"/>
                         <outlet property="like" destination="Xn0-qb-HFZ" id="ddd-Ni-J5j"/>
                         <outlet property="previewTemplate" destination="02T-m9-QXw" id="r3N-HX-JPR"/>
+                        <outlet property="trash" destination="Fc1-Vr-Hko" id="CnI-OJ-bvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cK-3B-Eoi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

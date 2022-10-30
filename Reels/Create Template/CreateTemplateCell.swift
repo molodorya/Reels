@@ -16,5 +16,10 @@ class CreateTemplateCell: UICollectionViewCell {
         
     }
     
+//    override func prepareForReuse() {
+//         super.prepareForReuse()
+//         self.displayCell = nil
+//    }
+    
  
 }

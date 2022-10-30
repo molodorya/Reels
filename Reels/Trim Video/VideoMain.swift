@@ -23,9 +23,9 @@ class VideoMain: UIViewController {
     var player: AVPlayer!
     var playerItem: AVPlayerItem!
     var playerLayer: AVPlayerLayer!
-   static var asset: AVAsset!
+    static var asset: AVAsset!
     
-    var url:NSURL! = nil
+    static var url:NSURL! = nil
     var startTime: CGFloat = 0.0
     var stopTime: CGFloat  = 0.0
     var thumbTime: CMTime!
@@ -125,7 +125,7 @@ class VideoMain: UIViewController {
     @IBAction func cropVideo(_ sender: Any) {
         let start = Float(startTimeText.text!)
         let end   = Float(endTimeText.text!)
-        cropVideo(sourceURL1: url, startTime: start!, endTime: end!)
+        cropVideo(sourceURL1: VideoMain.url, startTime: start!, endTime: end!)
     }
     
 }
@@ -136,8 +136,8 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         
-        url = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.mediaURL.rawValue)] as? NSURL
-        VideoMain.asset   = AVURLAsset.init(url: url as URL)
+        VideoMain.url = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.mediaURL.rawValue)] as? NSURL
+        VideoMain.asset   = AVURLAsset.init(url: VideoMain.url as URL)
         
         thumbTime = VideoMain.asset.duration
         thumbtimeSeconds      = Int(CMTimeGetSeconds(thumbTime))
@@ -357,8 +357,11 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
             exportSession.exportAsynchronously{
                 switch exportSession.status {
                 case .completed:
-                    print("exported at \(outputURL)")
+                    print("Добавление в библиотеку отключено \(outputURL)")
                     self.saveToCameraRoll(URL: outputURL as NSURL?)
+                  
+                    
+                    
                    
                 case .failed:
                     print("failed \(String(describing: exportSession.error))")
@@ -372,10 +375,13 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
     // Сохранить видео в библиотеке фотографий
     func saveToCameraRoll(URL: NSURL!) {
         PHPhotoLibrary.shared().performChanges({
-            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL as URL)
+//            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL as URL)
         }) { saved, error in
             if saved {
-                DispatchQueue.main.async {
+                UserDefaults.standard.set(VideoMain.url as URL, forKey: "keyVideoUrl")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5)  {
+                  
+                   
                     self.dismiss(animated: true)
                     print(VideoMain.asset)
                 }
