@@ -360,10 +360,6 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
                     print("Добавление в библиотеку отключено \(outputURL)")
                     self.saveToCameraRoll(URL: outputURL as NSURL?)
                     
-                    if CreateTemplate.urls[0].isEmpty == true {
-                        CreateTemplate.urls[0] = String(describing: outputURL)
-                    }
-                    
                   
                     
                    

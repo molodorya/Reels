@@ -922,7 +922,22 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lr9-Rf-eJM">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="128"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AMO-TN-pfM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="128"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="128" id="cey-y3-86n"/>
+                                                                <constraint firstAttribute="width" constant="80" id="pLV-H7-x4T"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="AMO-TN-pfM" secondAttribute="bottom" id="4BY-qL-Psg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AMO-TN-pfM" secondAttribute="trailing" id="Gdt-7u-XSv"/>
+                                                        <constraint firstItem="AMO-TN-pfM" firstAttribute="top" secondItem="Lr9-Rf-eJM" secondAttribute="top" id="azU-qo-fvb"/>
+                                                        <constraint firstItem="AMO-TN-pfM" firstAttribute="leading" secondItem="Lr9-Rf-eJM" secondAttribute="leading" id="fsd-4L-H2e"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -936,6 +951,7 @@
                                         <size key="customSize" width="80" height="128"/>
                                         <connections>
                                             <outlet property="displayCell" destination="Lr9-Rf-eJM" id="r03-Lr-qni"/>
+                                            <outlet property="mediaImageView" destination="AMO-TN-pfM" id="2oD-z1-gQh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -952,7 +968,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="addMediaAction:" destination="w6B-1E-yAb" eventType="touchUpInside" id="GH5-86-oIG"/>
+                                            <action selector="addMediaAction:" destination="BTT-Ut-l6h" eventType="touchUpInside" id="ioj-fk-tjI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEz-mF-1d8">
@@ -1010,6 +1026,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addMedia" destination="qxh-Sl-Yt9" id="46s-5F-d0Z"/>
+                        <outlet property="addSound" destination="GEz-mF-1d8" id="RAP-Mw-YWw"/>
                         <outlet property="collectionView" destination="A7b-Uy-zFl" id="vck-fT-kZv"/>
                         <outlet property="like" destination="Xn0-qb-HFZ" id="ddd-Ni-J5j"/>
                         <outlet property="previewTemplate" destination="02T-m9-QXw" id="r3N-HX-JPR"/>

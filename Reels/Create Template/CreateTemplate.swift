@@ -7,6 +7,8 @@
 
 import UIKit
 import AVFoundation
+import AVKit
+import CoreData
 
 class CreateTemplate: UIViewController {
   
@@ -18,47 +20,82 @@ class CreateTemplate: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        previewTemplate.layer.cornerRadius = 25
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
- 
-      
+    @IBOutlet weak var addMedia: UIButton!
+    @IBOutlet weak var addSound: UIButton!
+    
+    
+    private lazy var imagePickerController: UIImagePickerController = {
+      let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
+      let pickerController = UIImagePickerController()
+      pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
+      pickerController.delegate = self
+      return pickerController
+    }()
+    
+    
+    private var mediaObjects = [CDMediaObject]() {
+      didSet { // property observer
+        playRandomVideo(in: previewTemplate)
+        collectionView.reloadData()
+      }
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    // NSPredicate — разрешить фильтрацию или сортировку данных из выборок Core Data
+    // NSFetchResultsController — аналогично слушателю Firebase — добавить автоматическую перезагрузку коллекции измененных данных
+    private func fetchMediaObjects() {
+        mediaObjects = CoreDataManager.shared.fetchMediaObjects()
         
-        if VideoMain.asset != nil {
-            let player = AVPlayer(playerItem: AVPlayerItem(asset: VideoMain.asset))
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.videoGravity = .resizeAspectFill
-            playerLayer.frame = previewTemplate.bounds
-            playerLayer.cornerRadius = 25
-            previewTemplate.layer.addSublayer(playerLayer)
-            //        player.volume = 1
-            
-            
+    }
+    
+    private func playRandomVideo(in view: UIView) {
+        let videoDataObjects = mediaObjects.compactMap {$0.videoData}
+        
+        if let videoObject = videoDataObjects.randomElement(),
+           let videoURL = videoObject.convertToURL() {
+            let player = AVPlayer(url: videoURL)
             loopVideo(videoPlayer: player)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = view.bounds
+            playerLayer.videoGravity = .resizeAspectFill
+            view.layer.sublayers?.removeAll()
+            view.layer.addSublayer(playerLayer)
             player.play()
-            collectionView.reloadData()
         }
     }
     
     
-    @IBAction func trashAction(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.removeObject(forKey: "keyVideoUrl")
-        collectionView.reloadData()
-        print("trash")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        previewTemplate.layer.cornerRadius = 25
+        addMedia.layer.cornerRadius = 25
+        addSound.layer.cornerRadius = 25
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        fetchMediaObjects()
+        playRandomVideo(in: previewTemplate)
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+      
+    }
+    
+    
+    @IBAction func trashAction(_ sender: UIBarButtonItem) {
+        AppDelegate().clearDatabase()
+        loadView()
+        collectionView.reloadData()
+    }
+    
+      
     
     var isVideoLike = false
     @IBAction func likeAction(_ sender: UIBarButtonItem) {
         self.collectionView.reloadData()
+        
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.prepare()
         generator.impactOccurred()
@@ -86,7 +123,15 @@ class CreateTemplate: UIViewController {
     }
     
     
-    static var urls = [""]
+    @IBAction func addMediaAction(_ sender: UIButton) {
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
+    
+    
+    
+    
+   
      
 }
 
@@ -94,54 +139,76 @@ class CreateTemplate: UIViewController {
 extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return mediaObjects.count
     }
-    
-   
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-        let vc = storyboard?.instantiateViewController(withIdentifier: "VideoMain") as! VideoMain
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
-        
-        
-    }
+ 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath) as! CreateTemplateCell
         cell.layer.cornerRadius = 25
         
-      
-        
-        
-        
-        if VideoMain.asset != nil {
-            let player = AVPlayer(playerItem: AVPlayerItem(asset: VideoMain.asset))
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.videoGravity = .resizeAspectFill
-            playerLayer.frame = cell.displayCell.bounds
-            cell.displayCell.layer.addSublayer(playerLayer)
-            player.volume = 0
-            
-            loopVideo(videoPlayer: player)
-            player.play()
-            
-            
-        }
-        
-        
-        
-        
+        let mediaObject = mediaObjects[indexPath.row]
+        cell.mediaImageView.contentMode = .scaleAspectFill
+        cell.configureCell(for: mediaObject)
         
         return cell
-        
-      
     }
-    
-    
 }
 
 
  
+// MARK: UICollection View Delegate Methods
+extension CreateTemplate: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let mediaOjbect = mediaObjects[indexPath.row]
+    guard let videoURL = mediaOjbect.videoData?.convertToURL() else {
+      return
+    }
+    let playerViewController = AVPlayerViewController()
+    let player = AVPlayer(url: videoURL)
+    playerViewController.player = player
+    present(playerViewController, animated: true) {
+      // play video automatically
+      player.play()
+    }
+  }
+    
+}
+
+extension CreateTemplate: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else {
+      return
+    }
+    
+    switch mediaType { // "public.movie" , "public.image"
+    case "public.image":
+      if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+        let imageData = originalImage.jpegData(compressionQuality: 1.0){
+        
+        // add to Core Data
+        let mediaObject = CoreDataManager.shared.createMediaObect(imageData, videoURL: nil)
+        
+        // add to collection view and reload data
+        mediaObjects.append(mediaObject) // 0 => 1
+      }
+    case "public.movie":
+      if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL,
+        let image = mediaURL.videoPreviewThumnail(),
+        let imageData = image.jpegData(compressionQuality: 1.0){
+        print("mediaURL: \(mediaURL)")
+        
+        let mediaObject = CoreDataManager.shared.createMediaObect(imageData, videoURL: mediaURL)
+        mediaObjects.append(mediaObject)
+      }
+    default:
+      print("unsupported media type")
+    }
+    
+    picker.dismiss(animated: true)
+  }
+    
+}
+
+
