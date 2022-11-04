@@ -359,8 +359,12 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
                 case .completed:
                     print("Добавление в библиотеку отключено \(outputURL)")
                     self.saveToCameraRoll(URL: outputURL as NSURL?)
-                  
                     
+                    if CreateTemplate.urls[0].isEmpty == true {
+                        CreateTemplate.urls[0] = String(describing: outputURL)
+                    }
+                    
+                  
                     
                    
                 case .failed:
@@ -378,12 +382,12 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
 //            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL as URL)
         }) { saved, error in
             if saved {
-                UserDefaults.standard.set(VideoMain.url as URL, forKey: "keyVideoUrl")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5)  {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now())  {
                   
                    
                     self.dismiss(animated: true)
-                    print(VideoMain.asset)
+                    
                 }
             }}}
     

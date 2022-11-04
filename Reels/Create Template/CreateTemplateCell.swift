@@ -10,7 +10,7 @@ import UIKit
 class CreateTemplateCell: UICollectionViewCell {
 
     @IBOutlet weak var displayCell: UIView!
-    @IBOutlet weak var secounds: UILabel!
+   
     
     override class func awakeFromNib() {
         

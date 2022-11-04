@@ -9,9 +9,6 @@ import UIKit
 import AVFoundation
 
 class CreateTemplate: UIViewController {
-    
-    
-   
   
     @IBOutlet weak var trash: UIBarButtonItem!
     
@@ -29,12 +26,27 @@ class CreateTemplate: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+ 
+      
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-//        Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { Timer in
-//            self.collectionView.reloadData()
-//            print(123234)
-//        }
-       
+        if VideoMain.asset != nil {
+            let player = AVPlayer(playerItem: AVPlayerItem(asset: VideoMain.asset))
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = .resizeAspectFill
+            playerLayer.frame = previewTemplate.bounds
+            playerLayer.cornerRadius = 25
+            previewTemplate.layer.addSublayer(playerLayer)
+            //        player.volume = 1
+            
+            
+            loopVideo(videoPlayer: player)
+            player.play()
+            collectionView.reloadData()
+        }
     }
     
     
@@ -73,42 +85,40 @@ class CreateTemplate: UIViewController {
          present(activity, animated: true, completion: nil)
     }
     
-  
-    var counting = 0
+    
+    static var urls = [""]
+     
 }
 
 
 extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        counting = indexPath.row
-        
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "VideoMain") as! VideoMain
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath) as! CreateTemplateCell
         cell.layer.cornerRadius = 25
         
-        /*
-         Решение проблемы с индексом и добавлением разных видео в ячейки скорее всего решается через CoreData то есть Добавление видео в память CoreData -
-         */
+      
         
         
         
-        if let url = UserDefaults.standard.url(forKey: "keyVideoUrl") {
-         
-            let player = AVPlayer(playerItem: AVPlayerItem(url: url))
+        if VideoMain.asset != nil {
+            let player = AVPlayer(playerItem: AVPlayerItem(asset: VideoMain.asset))
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.videoGravity = .resizeAspectFill
             playerLayer.frame = cell.displayCell.bounds
@@ -117,40 +127,14 @@ extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
             
             loopVideo(videoPlayer: player)
             player.play()
+            
+            
         }
         
-     
         
-//        if VideoMain.asset != nil {
-//            switch indexPath.row {
-//            case 0:
-//                let player = AVPlayer(playerItem: AVPlayerItem(url: VideoMain.url as URL))
-//                let playerLayer = AVPlayerLayer(player: player)
-//                playerLayer.videoGravity = .resizeAspectFill
-//                playerLayer.frame = cell.displayCell.bounds
-//                cell.displayCell.layer.addSublayer(playerLayer)
-//                player.volume = 0
-//
-//                loopVideo(videoPlayer: player)
-//                player.play()
-//
-//            case 1:
-//                break
-//
-//            default:
-//                break
-//            }
-//        }
         
-       
-          
-           
-           
- 
-
-       
-       
- 
+        
+        
         return cell
         
       
