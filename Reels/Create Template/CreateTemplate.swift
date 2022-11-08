@@ -65,6 +65,9 @@ class CreateTemplate: UIViewController {
     }
     
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         previewTemplate.layer.cornerRadius = 25
