@@ -36,7 +36,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="230" id="ZnI-rW-blI"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5T4-bg-m1v">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5T4-bg-m1v">
                                                     <size key="itemSize" width="170" height="220"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -44,7 +44,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trendings" id="wse-3D-d62" customClass="TrendingsCollectionCell" customModule="Reels" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="0.0" width="170" height="220"/>
+                                                        <rect key="frame" x="20" y="5" width="170" height="220"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ibP-t9-YHS">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="220"/>
@@ -70,7 +70,6 @@
                                                         <size key="customSize" width="170" height="220"/>
                                                         <connections>
                                                             <outlet property="displayCell" destination="bwy-8T-OAI" id="UlD-Ue-yJP"/>
-                                                            <segue destination="KmI-re-FDN" kind="presentation" modalPresentationStyle="overFullScreen" id="2Mj-uQ-uqM"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -95,7 +94,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="230" id="7RT-bD-1pU"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WXv-st-3mQ">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WXv-st-3mQ">
                                                     <size key="itemSize" width="170" height="220"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -103,7 +102,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="motivation" id="GhA-SA-0Oo" customClass="MotivationCollectionCell" customModule="Reels" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="0.0" width="170" height="220"/>
+                                                        <rect key="frame" x="20" y="5" width="170" height="220"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="BL2-iB-ajL">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="220"/>
@@ -642,7 +641,7 @@
         <!--Change Template-->
         <scene sceneID="zTs-6V-ygr">
             <objects>
-                <viewController id="w6B-1E-yAb" customClass="ChangeTemplate" customModule="Reels" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeTemplate" id="w6B-1E-yAb" customClass="ChangeTemplate" customModule="Reels" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M1f-YD-bDP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -798,7 +797,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1z9-ii-vkw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4077" y="2139"/>
+            <point key="canvasLocation" x="3098" y="1934"/>
         </scene>
         <!--Video Main-->
         <scene sceneID="a6U-L3-eXl">
@@ -827,22 +826,22 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bde-zg-d4R">
-                                    <size key="itemSize" width="100" height="130"/>
-                                    <size key="estimatedItemSize" width="100" height="130"/>
+                                    <size key="itemSize" width="155" height="215"/>
+                                    <size key="estimatedItemSize" width="155" height="215"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trendingsAll" id="aj9-Zd-51P" customClass="TrendingsAllCell" customModule="Reels" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="30" width="100" height="130"/>
+                                        <rect key="frame" x="30" y="30" width="155" height="215"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NK0-c1-MOj">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="155" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25I-kD-NmW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="215"/>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                 </view>
                                             </subviews>
@@ -1178,7 +1177,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XJF-TN-qev">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KmI-re-FDN" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChangeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="KmI-re-FDN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XHy-D9-lHh">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

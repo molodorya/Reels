@@ -30,7 +30,7 @@ class ChangeTemplate: UIViewController, UIImagePickerControllerDelegate & UINavi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         downloadVideoAndShow()
+        
         
         previewTemplate.layer.cornerRadius = 25
         addMedia.layer.cornerRadius = 25
@@ -39,6 +39,13 @@ class ChangeTemplate: UIViewController, UIImagePickerControllerDelegate & UINavi
 
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        downloadVideoAndShow()
+        print(Main.selectedUrl)
     }
     
     
@@ -74,6 +81,13 @@ class ChangeTemplate: UIViewController, UIImagePickerControllerDelegate & UINavi
     // Добавить вибрацию, отклик
     var isVideoLike = false
     @IBAction func likeAction(_ sender: UIBarButtonItem) {
+        
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.prepare()
+        generator.impactOccurred()
+        
+        Main.likeTemplates.append(Main.selectedUrl)
         
         if isVideoLike == true {
             like.image = UIImage.init(systemName: "heart")

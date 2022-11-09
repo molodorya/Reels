@@ -10,7 +10,10 @@ import AVFoundation
 
 class MyTemplates: UIViewController {
     
-    let urls = ["https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4"]
+    let urls = Main.likeTemplates.first
+    
+    
+    // Нужно брать из сохраненных данных (а еще лучше загружать в CoreData любимые видео)
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -39,16 +42,22 @@ extension MyTemplates: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myTemplateCell", for: indexPath) as! MyTemplatesCell
         cell.layer.cornerRadius = 25
         
-        let videoURL = URL(string: urls[indexPath.row])
-        let player = AVPlayer(url: videoURL!)
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = .resizeAspectFill
-        playerLayer.frame = cell.displayCell.bounds
-        cell.displayCell.layer.addSublayer(playerLayer)
-        player.volume = 0
-      
-        loopVideo(videoPlayer: player)
-        player.play()
+        if urls?.count == 0 {
+            
+        } else {
+            let videoURL = URL(string: urls[indexPath.row])
+            let player = AVPlayer(url: videoURL!)
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = .resizeAspectFill
+            playerLayer.frame = cell.displayCell.bounds
+            cell.displayCell.layer.addSublayer(playerLayer)
+            player.volume = 0
+          
+            loopVideo(videoPlayer: player)
+            player.play()
+        }
+        
+       
         
         return cell
     }

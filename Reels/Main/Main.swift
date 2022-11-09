@@ -17,12 +17,13 @@ class Main: UIViewController {
     @IBOutlet weak var collectionViewOne: UICollectionView!
     @IBOutlet weak var collectionViewTwo: UICollectionView!
     
-   let urls = ["https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4"]
+   let urls = ["https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4"]
     
     
     // Пользоваться делегатами надо, а не статиком
-   static var selectedUrl = ""
-   
+    static var selectedUrl = ""
+    static var likeTemplates = [""]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,14 @@ extension Main: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         Main.selectedUrl = urls[indexPath.row]
+        
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChangeTemplate") as? ChangeTemplate else { return }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .overFullScreen
+        self.present(nav, animated: true, completion: nil)
+        
     }
     
     
