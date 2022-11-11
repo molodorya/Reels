@@ -35,28 +35,24 @@ class MyTemplates: UIViewController {
 extension MyTemplates: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return urls.count
+        return 10
+//        return urls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myTemplateCell", for: indexPath) as! MyTemplatesCell
         cell.layer.cornerRadius = 25
         
-        if urls?.count == 0 {
-            
-        } else {
-            let videoURL = URL(string: urls[indexPath.row])
-            let player = AVPlayer(url: videoURL!)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.videoGravity = .resizeAspectFill
-            playerLayer.frame = cell.displayCell.bounds
-            cell.displayCell.layer.addSublayer(playerLayer)
-            player.volume = 0
-          
-            loopVideo(videoPlayer: player)
-            player.play()
-        }
-        
+//        let videoURL = URL(string: urls[indexPath.row])
+//        let player = AVPlayer(url: videoURL!)
+//        let playerLayer = AVPlayerLayer(player: player)
+//        playerLayer.videoGravity = .resizeAspectFill
+//        playerLayer.frame = cell.displayCell.bounds
+//        cell.displayCell.layer.addSublayer(playerLayer)
+//        player.volume = 0
+//
+//        loopVideo(videoPlayer: player)
+//        player.play()
        
         
         return cell

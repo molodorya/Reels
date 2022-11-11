@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class TrendingsAll: UIViewController {
+class SeeAll: UIViewController {
     
     let urls = ["https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2520.mp4?_=3", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4", "https://www.iphones.ru/wp-content/uploads/2022/10/IMG_2856.mp4?_=4"]
     
@@ -16,11 +16,24 @@ class TrendingsAll: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "All trends"
+    
         collectionView.delegate = self
         collectionView.dataSource = self
         
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        switch navigationItem.title {
+        case "Trendings":
+            print("Ссылки на видео тренды")
+        case "Motivation":
+            print("Ссылки на видео мотивации")
+        case "Travelling":
+            print("Ссылки на видео о путешествий")
+        default:
+            break
+        }
     }
     
 }
@@ -30,7 +43,7 @@ class TrendingsAll: UIViewController {
  
 
 
-extension TrendingsAll: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SeeAll: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     
@@ -48,7 +61,7 @@ extension TrendingsAll: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendingsAll", for: indexPath) as! TrendingsAllCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "trendingsAll", for: indexPath) as! SeeAllCell
         cell.layer.cornerRadius = 25
         
         

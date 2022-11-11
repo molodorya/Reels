@@ -11,7 +11,7 @@ import AVKit
 import CoreData
 
 class CreateTemplate: UIViewController {
-  
+    
     @IBOutlet weak var trash: UIBarButtonItem!
     
     @IBOutlet weak var like: UIBarButtonItem!
@@ -25,19 +25,19 @@ class CreateTemplate: UIViewController {
     
     
     private lazy var imagePickerController: UIImagePickerController = {
-      let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
-      let pickerController = UIImagePickerController()
-      pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
-      pickerController.delegate = self
-      return pickerController
+        let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
+        let pickerController = UIImagePickerController()
+        pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
+        pickerController.delegate = self
+        return pickerController
     }()
     
     
     private var mediaObjects = [CDMediaObject]() {
-      didSet { // property observer
-        playRandomVideo(in: previewTemplate)
-        collectionView.reloadData()
-      }
+        didSet { // property observer
+            playRandomVideo(in: previewTemplate)
+            collectionView.reloadData()
+        }
     }
     
     
@@ -48,21 +48,56 @@ class CreateTemplate: UIViewController {
         
     }
     
+    
     private func playRandomVideo(in view: UIView) {
-        let videoDataObjects = mediaObjects.compactMap {$0.videoData}
+//        let videoDataObjects = mediaObjects.compactMap{$0.videoData}
+//     
+//        let url = videoDataObjects
+//        let player = AVPlayer(url: url)
+//        loopVideo(videoPlayer: player)
+//        let playerLayer = AVPlayerLayer(player: player)
+//        playerLayer.frame = view.bounds
+//        playerLayer.videoGravity = .resizeAspectFill
+//        view.layer.sublayers?.removeAll()
+//        view.layer.masksToBounds = true
+//        playerLayer.cornerRadius = 25
+//        view.layer.addSublayer(playerLayer)
+//        player.play()
+//        
+//        player.actionAtItemEnd = .advance
         
-        if let videoObject = videoDataObjects.randomElement(),
-           let videoURL = videoObject.convertToURL() {
-            let player = AVPlayer(url: videoURL)
-            loopVideo(videoPlayer: player)
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = view.bounds
-            playerLayer.videoGravity = .resizeAspectFill
-            view.layer.sublayers?.removeAll()
-            view.layer.addSublayer(playerLayer)
-            player.play()
-        }
+            
+
+        
+        
+        
+       
+        
+        
     }
+    
+
+        
+        
+
+    // рабочая версия
+//    private func playRandomVideo(in view: UIView) {
+//        let videoDataObjects = mediaObjects.compactMap {$0.videoData}
+//
+//        if let videoObject = videoDataObjects.randomElement(),
+//           let videoURL = videoObject.convertToURL() {
+//            let player = AVPlayer(url: videoURL)
+//            loopVideo(videoPlayer: player)
+//            let playerLayer = AVPlayerLayer(player: player)
+//            playerLayer.frame = view.bounds
+//            playerLayer.videoGravity = .resizeAspectFill
+//            view.layer.sublayers?.removeAll()
+//            view.layer.masksToBounds = true
+//            playerLayer.cornerRadius = 25
+//            view.layer.addSublayer(playerLayer)
+//            player.play()
+//        }
+//    }
     
     
     
@@ -170,6 +205,7 @@ extension CreateTemplate: UICollectionViewDelegateFlowLayout {
     let playerViewController = AVPlayerViewController()
     let player = AVPlayer(url: videoURL)
     playerViewController.player = player
+      
     present(playerViewController, animated: true) {
       // play video automatically
       player.play()

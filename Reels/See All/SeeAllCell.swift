@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrendingsAllCell: UICollectionViewCell {
+class SeeAllCell: UICollectionViewCell {
     
     @IBOutlet weak var displayCell: UIView!
     
