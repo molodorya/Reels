@@ -556,7 +556,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                        <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="2"/>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <segue destination="ZuK-Ma-7EC" kind="presentation" modalPresentationStyle="fullScreen" id="Ihm-3l-ufy"/>
                                                         </connections>
@@ -1126,11 +1128,11 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="36c-hI-rkQ">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="36c-hI-rkQ">
                                 <rect key="frame" x="20" y="691" width="353" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-Sl-Yt9">
-                                        <rect key="frame" x="0.0" y="0.0" width="189.33333333333334" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="60"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="+ Add media">
@@ -1142,7 +1144,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEz-mF-1d8">
-                                        <rect key="frame" x="194.33333333333334" y="0.0" width="76.666666666666657" height="60"/>
+                                        <rect key="frame" x="189.33333333333334" y="0.0" width="71.000000000000028" height="60"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="music.note.list" catalog="system">
@@ -1150,7 +1152,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw5-xp-OoF">
-                                        <rect key="frame" x="276" y="0.0" width="77" height="60"/>
+                                        <rect key="frame" x="275.33333333333331" y="0.0" width="77.666666666666686" height="60"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system">
@@ -1199,6 +1201,7 @@
                         <outlet property="addMedia" destination="qxh-Sl-Yt9" id="46s-5F-d0Z"/>
                         <outlet property="addSound" destination="GEz-mF-1d8" id="RAP-Mw-YWw"/>
                         <outlet property="collectionView" destination="A7b-Uy-zFl" id="vck-fT-kZv"/>
+                        <outlet property="done" destination="Fw5-xp-OoF" id="LcT-mn-Ieq"/>
                         <outlet property="like" destination="Xn0-qb-HFZ" id="ddd-Ni-J5j"/>
                         <outlet property="previewTemplate" destination="02T-m9-QXw" id="r3N-HX-JPR"/>
                         <outlet property="trash" destination="Fc1-Vr-Hko" id="CnI-OJ-bvH"/>
@@ -1206,7 +1209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cK-3B-Eoi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5577.8625954198469" y="2138.7323943661972"/>
+            <point key="canvasLocation" x="4779" y="1921"/>
         </scene>
         <!--My Templates-->
         <scene sceneID="XFr-YB-HV3">
@@ -1220,21 +1223,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zKm-kF-pnq">
-                                    <size key="itemSize" width="224" height="248"/>
+                                    <size key="itemSize" width="155" height="215"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="30" minY="30" maxX="30" maxY="30"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="myTemplateCell" id="FKt-LE-r8k" customClass="MyTemplatesCell" customModule="Reels" customModuleProvider="target">
-                                        <rect key="frame" x="84.666666666666671" y="0.0" width="224" height="248"/>
+                                        <rect key="frame" x="30" y="30" width="155" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P7k-52-2nn">
-                                            <rect key="frame" x="0.0" y="0.0" width="224" height="248"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="155" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5y6-bp-8Jq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="224" height="248"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="215"/>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="224" id="04n-EH-2Cb"/>
@@ -1553,7 +1556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3B-Go-GTh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4815" y="2139"/>
+            <point key="canvasLocation" x="4030" y="1915"/>
         </scene>
     </scenes>
     <resources>

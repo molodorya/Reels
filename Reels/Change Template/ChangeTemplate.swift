@@ -32,10 +32,10 @@ class ChangeTemplate: UIViewController, UIImagePickerControllerDelegate & UINavi
         
         
         
-        previewTemplate.layer.cornerRadius = 25
-        addMedia.layer.cornerRadius = 25
-        two.layer.cornerRadius = 25
-        three.layer.cornerRadius = 25
+        previewTemplate.layer.cornerRadius = 15
+        addMedia.layer.cornerRadius = 15
+        two.layer.cornerRadius = 15
+        three.layer.cornerRadius = 15
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -55,7 +55,7 @@ class ChangeTemplate: UIViewController, UIImagePickerControllerDelegate & UINavi
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
         playerLayer.frame = previewTemplate.bounds
-        playerLayer.cornerRadius = 25
+        playerLayer.cornerRadius = 15
         previewTemplate.layer.addSublayer(playerLayer)
 //        player.volume = 1
        
@@ -165,7 +165,7 @@ extension ChangeTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "changeTemplate", for: indexPath) as! TemplateCell
         
-        cell.layer.cornerRadius = 25
+        cell.layer.cornerRadius = 15
         
         cell.secounds.text = "\(indexPath.row).6"
         

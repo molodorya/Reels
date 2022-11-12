@@ -21,6 +21,7 @@ class MyTemplates: UIViewController {
         super.viewDidLoad()
         
         title = "My templates"
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         collectionView.delegate = self
         collectionView.dataSource = self

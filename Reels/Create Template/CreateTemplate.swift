@@ -22,6 +22,7 @@ class CreateTemplate: UIViewController {
     
     @IBOutlet weak var addMedia: UIButton!
     @IBOutlet weak var addSound: UIButton!
+    @IBOutlet weak var done: UIButton!
     
     
     private lazy var imagePickerController: UIImagePickerController = {
@@ -105,9 +106,11 @@ class CreateTemplate: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        previewTemplate.layer.cornerRadius = 25
-        addMedia.layer.cornerRadius = 25
-        addSound.layer.cornerRadius = 25
+        
+        previewTemplate.layer.cornerRadius = 15
+        addMedia.layer.cornerRadius = 15
+        addSound.layer.cornerRadius = 15
+        done.layer.cornerRadius = 15
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -183,7 +186,7 @@ extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createTemplate", for: indexPath) as! CreateTemplateCell
-        cell.layer.cornerRadius = 25
+        cell.layer.cornerRadius = 15
         
         let mediaObject = mediaObjects[indexPath.row]
         cell.mediaImageView.contentMode = .scaleAspectFill

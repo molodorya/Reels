@@ -135,8 +135,8 @@
 			children = (
 				82C856F82909DD6D00528D90 /* test.mov */,
 				82480DF028F6D6D000B3689C /* AppDelegate.swift */,
-				82AF319029157721002A2E1C /* CoreData */,
 				82480DF228F6D6D000B3689C /* SceneDelegate.swift */,
+				82AF319029157721002A2E1C /* CoreData */,
 				82B77B45291B0ACB00979C70 /* Main */,
 				82C856FC2909E11000528D90 /* Trim Video */,
 				82D0556429047684009EBDB3 /* Extensions.swift */,
