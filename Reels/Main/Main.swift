@@ -154,7 +154,7 @@ extension Main: UICollectionViewDelegate, UICollectionViewDataSource {
               
                 loopVideo(videoPlayer: player)
                 player.play()
-                print(2)
+               
             }
             
             return cell
@@ -177,7 +177,7 @@ extension Main: UICollectionViewDelegate, UICollectionViewDataSource {
               
                 loopVideo(videoPlayer: player)
                 player.play()
-                print(2)
+                 
             }
             
             return cell

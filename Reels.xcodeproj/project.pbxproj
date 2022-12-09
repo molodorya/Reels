@@ -22,6 +22,7 @@
 		82480DFD28F6D6D200B3689C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82480DFB28F6D6D200B3689C /* LaunchScreen.storyboard */; };
 		8290921928FB59D50051AB07 /* ChangeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290921828FB59D50051AB07 /* ChangeTemplate.swift */; };
 		8296A6A828FB8C6B0096B1B0 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */; };
+		82A326BE2943DE4800442978 /* CreateTemplateMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A326BD2943DE4800442978 /* CreateTemplateMusic.swift */; };
 		82AABC5E290D8AC400F7AD65 /* CreateTemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AABC5D290D8AC400F7AD65 /* CreateTemplateCell.swift */; };
 		82AF318D291576E5002A2E1C /* MediaFeedDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82AF318B291576E5002A2E1C /* MediaFeedDataModel.xcdatamodeld */; };
 		82AF318F2915771D002A2E1C /* CDMediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AF318E2915771D002A2E1C /* CDMediaObject.swift */; };
@@ -57,6 +58,7 @@
 		82480DFE28F6D6D200B3689C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8290921828FB59D50051AB07 /* ChangeTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTemplate.swift; sourceTree = "<group>"; };
 		8296A6A728FB8C6B0096B1B0 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
+		82A326BD2943DE4800442978 /* CreateTemplateMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTemplateMusic.swift; sourceTree = "<group>"; };
 		82AABC5D290D8AC400F7AD65 /* CreateTemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTemplateCell.swift; sourceTree = "<group>"; };
 		82AF318C291576E5002A2E1C /* MediaFeedDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MediaFeedDataModel.xcdatamodel; sourceTree = "<group>"; };
 		82AF318E2915771D002A2E1C /* CDMediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDMediaObject.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				82C25884290543B8003E5CF0 /* CreateTemplate.swift */,
 				82AABC5D290D8AC400F7AD65 /* CreateTemplateCell.swift */,
+				82A326BD2943DE4800442978 /* CreateTemplateMusic.swift */,
 			);
 			path = "Create Template";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				82480DF528F6D6D000B3689C /* Main.swift in Sources */,
 				82AF3194291577EB002A2E1C /* MediaObject.swift in Sources */,
 				82C856FB2909E10C00528D90 /* RangeSlider.swift in Sources */,
+				82A326BE2943DE4800442978 /* CreateTemplateMusic.swift in Sources */,
 				82AABC5E290D8AC400F7AD65 /* CreateTemplateCell.swift in Sources */,
 				82AF318F2915771D002A2E1C /* CDMediaObject.swift in Sources */,
 				82C25885290543B8003E5CF0 /* CreateTemplate.swift in Sources */,
@@ -519,6 +523,8 @@
 				DEVELOPMENT_TEAM = 2HZH3XUR69;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reels/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) нужно разрешение, чтобы снять видео в приложение";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) нужно разрешение, чтобы импортировать видео в приложение";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -529,7 +535,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = molodorya.Reels;
+				PRODUCT_BUNDLE_IDENTIFIER = molodorya.Reels.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -548,6 +554,8 @@
 				DEVELOPMENT_TEAM = 2HZH3XUR69;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Reels/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) нужно разрешение, чтобы снять видео в приложение";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) нужно разрешение, чтобы импортировать видео в приложение";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -558,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = molodorya.Reels;
+				PRODUCT_BUNDLE_IDENTIFIER = molodorya.Reels.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

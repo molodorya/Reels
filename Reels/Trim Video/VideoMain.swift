@@ -49,15 +49,28 @@ class VideoMain: UIViewController {
     @IBOutlet weak var endView: UIView!
     @IBOutlet weak var endTimeText: UITextField!
     
+    @IBOutlet weak var leftDismiss: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectButton.isHidden = true
+        cropButton.layer.cornerRadius = 15
+        videoLayer.layer.cornerRadius = 25
+        layoutContainer.backgroundColor = .clear
+        
+        
         selectVideoUrl(UIButton())
         loadViews()
         // Выполните любую дополнительную настройку после загрузки представления, как правило, из пера.
     }
+    
+    @IBAction func leftDismiss(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,12 +95,12 @@ class VideoMain: UIViewController {
         //Стиль для startTime
         startTimeText.layer.cornerRadius = 5.0
         startTimeText.layer.borderWidth  = 1.0
-        startTimeText.layer.borderColor  = UIColor.white.cgColor
+        startTimeText.layer.borderColor  = UIColor.black.cgColor
         
         //Стиль для endTime
         endTimeText.layer.cornerRadius = 5.0
         endTimeText.layer.borderWidth  = 1.0
-        endTimeText.layer.borderColor  = UIColor.white.cgColor
+        endTimeText.layer.borderColor  = UIColor.black.cgColor
         
         imageFrameView.layer.cornerRadius = 5.0
         imageFrameView.layer.borderWidth  = 1.0
@@ -116,9 +129,10 @@ class VideoMain: UIViewController {
     
     
     
-    @IBAction func dismissScreen(_ sender: UIButton) {
+    @IBAction func dismissScreen(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
+    
     
     
     //Действие для обрезки видео
@@ -148,6 +162,8 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
         player                = AVPlayer(playerItem: item)
         playerLayer           = AVPlayerLayer(player: player)
         playerLayer.frame     = videoLayer.bounds
+        playerLayer.cornerRadius = 25
+        playerLayer.masksToBounds = true
         
         playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         player.actionAtItemEnd   = AVPlayer.ActionAtItemEnd.none
@@ -372,20 +388,39 @@ extension VideoMain: UIImagePickerControllerDelegate,UINavigationControllerDeleg
                 default: break
                 }}}}
     
+    
+    static var urlsVideoChange = URL(string: "")
+    
     // Сохранить видео в библиотеке фотографий
     func saveToCameraRoll(URL: NSURL!) {
         PHPhotoLibrary.shared().performChanges({
-//            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL as URL)
+            
+           
+            
+           
+            
+            PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL as URL)
         }) { saved, error in
             if saved {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now())  {
-                  
-                   
+                    
+                    VideoMain.urlsVideoChange = URL as URL?
+//                    let alertSucces = UIAlertController(title: "Succes", message: "Successfully added", preferredStyle: .alert)
+//                    self.present(alertSucces, animated: true)
+//                    self.dismiss(animated: true)
+                    
                     self.dismiss(animated: true)
                     
                 }
-            }}}
+            } else {
+                let alertError = UIAlertController(title: "Error", message: "Error, perhaps there is no access to the photo", preferredStyle: .alert)
+                self.present(alertError, animated: true)
+            }
+            
+            
+            
+        }}
     
 }
 

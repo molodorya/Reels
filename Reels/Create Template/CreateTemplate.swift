@@ -50,45 +50,18 @@ class CreateTemplate: UIViewController {
     }
     
     
-    private func playRandomVideo(in view: UIView) {
-//        let videoDataObjects = mediaObjects.compactMap{$0.videoData}
-//     
-//        let url = videoDataObjects
-//        let player = AVPlayer(url: url)
-//        loopVideo(videoPlayer: player)
-//        let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.frame = view.bounds
-//        playerLayer.videoGravity = .resizeAspectFill
-//        view.layer.sublayers?.removeAll()
-//        view.layer.masksToBounds = true
-//        playerLayer.cornerRadius = 25
-//        view.layer.addSublayer(playerLayer)
-//        player.play()
-//        
-//        player.actionAtItemEnd = .advance
-        
-            
-
-        
-        
-        
-       
-        
-        
-    }
     
-
-        
-        
-
-    // рабочая версия
 //    private func playRandomVideo(in view: UIView) {
-//        let videoDataObjects = mediaObjects.compactMap {$0.videoData}
 //
-//        if let videoObject = videoDataObjects.randomElement(),
-//           let videoURL = videoObject.convertToURL() {
-//            let player = AVPlayer(url: videoURL)
-//            loopVideo(videoPlayer: player)
+//        for video in mediaObjects.compactMap({$0.videoData}) {
+//            let a = video.convertToURL()?.relativeString
+//
+//
+//            guard let url = Bundle.main.url(forResource: a, withExtension: ".mp4") else {
+//                fatalError("Could not load \(String(describing: a)).mp3")
+//            }
+//
+//            let player = AVPlayer(url: url)
 //            let playerLayer = AVPlayerLayer(player: player)
 //            playerLayer.frame = view.bounds
 //            playerLayer.videoGravity = .resizeAspectFill
@@ -98,8 +71,94 @@ class CreateTemplate: UIViewController {
 //            view.layer.addSublayer(playerLayer)
 //            player.play()
 //        }
+//
+//
 //    }
     
+    
+    
+    
+    
+    
+    //     рабочая версия
+    
+    
+    
+    private func playRandomVideo(in view: UIView) {
+        let videoDataObjects = mediaObjects.compactMap {$0.videoData}.reversed()
+    
+         
+        
+//        let videoURL = video.convertToURL()
+//        let player = AVQueuePlayer(items: [AVPlayerItem])
+//
+//        let playerLayer = AVPlayerLayer(player: player)
+//        playerLayer.frame = view.bounds
+//        playerLayer.videoGravity = .resizeAspectFill
+//        view.layer.sublayers?.removeAll()
+//        view.layer.masksToBounds = true
+//        playerLayer.cornerRadius = 25
+//        view.layer.addSublayer(playerLayer)
+//        player.play()
+        
+        
+        videoDataObjects.forEach { video in
+
+            let videoURL = video.convertToURL()
+            let player = AVQueuePlayer(url: videoURL!)
+
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = view.bounds
+            playerLayer.videoGravity = .resizeAspectFill
+            view.layer.sublayers?.removeAll()
+            view.layer.masksToBounds = true
+            playerLayer.cornerRadius = 25
+            view.layer.addSublayer(playerLayer)
+            player.play()
+
+        }
+        
+        
+    }
+    
+        
+    /*
+     
+     videoDataObjects.forEach { video in
+        
+         let videoURL = videoDataObjects.convertToURL()
+         let player = AVQueuePlayer(url: videoURL!)
+         let playerLayer = AVPlayerLayer(player: player)
+         playerLayer.frame = view.bounds
+         playerLayer.videoGravity = .resizeAspectFill
+         view.layer.sublayers?.removeAll()
+         view.layer.masksToBounds = true
+         playerLayer.cornerRadius = 25
+         view.layer.addSublayer(playerLayer)
+         player.play()
+     }
+     
+     
+     for video in videoDataObjects {
+         let videoURL = video.convertToURL()
+        
+         let player = AVQueuePlayer(url: videoURL!)
+         let playerLayer = AVPlayerLayer(player: player)
+         
+         playerLayer.frame = view.bounds
+         playerLayer.videoGravity = .resizeAspectFill
+         
+         view.layer.sublayers?.removeAll()
+         view.layer.masksToBounds = true
+         playerLayer.cornerRadius = 25
+         
+         view.layer.addSublayer(playerLayer)
+         
+         player.play()
+     }
+     */
+
+
     
     
     
@@ -120,8 +179,17 @@ class CreateTemplate: UIViewController {
     }
     
     
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
+        if let mediaURL = VideoMain.urlsVideoChange,
+           let image = mediaURL.videoPreviewThumnail(),
+           let imageData = image.jpegData(compressionQuality: 1.0) {
       
+          let mediaObject = CoreDataManager.shared.createMediaObect(imageData, videoURL: mediaURL)
+          mediaObjects.append(mediaObject)
+        }
     }
     
     
@@ -135,6 +203,12 @@ class CreateTemplate: UIViewController {
     
     var isVideoLike = false
     @IBAction func likeAction(_ sender: UIBarButtonItem) {
+        
+        
+        
+        
+        
+        
         self.collectionView.reloadData()
         
         let generator = UIImpactFeedbackGenerator(style: .heavy)
@@ -165,8 +239,14 @@ class CreateTemplate: UIViewController {
     
     
     @IBAction func addMediaAction(_ sender: UIButton) {
+        
+       
+        
+        
+        
         imagePickerController.sourceType = .photoLibrary
-        present(imagePickerController, animated: true)
+//        present(imagePickerController, animated: true)
+       
     }
     
     
@@ -201,6 +281,7 @@ extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
 // MARK: UICollection View Delegate Methods
 extension CreateTemplate: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      
     let mediaOjbect = mediaObjects[indexPath.row]
     guard let videoURL = mediaOjbect.videoData?.convertToURL() else {
       return
@@ -210,9 +291,11 @@ extension CreateTemplate: UICollectionViewDelegateFlowLayout {
     playerViewController.player = player
       
     present(playerViewController, animated: true) {
-      // play video automatically
-      player.play()
+    player.play()
     }
+      
+      
+     
   }
     
 }
@@ -236,14 +319,16 @@ extension CreateTemplate: UIImagePickerControllerDelegate, UINavigationControlle
         mediaObjects.append(mediaObject) // 0 => 1
       }
     case "public.movie":
+        
       if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL,
         let image = mediaURL.videoPreviewThumnail(),
-        let imageData = image.jpegData(compressionQuality: 1.0){
+        let imageData = image.jpegData(compressionQuality: 1.0) {
         print("mediaURL: \(mediaURL)")
         
         let mediaObject = CoreDataManager.shared.createMediaObect(imageData, videoURL: mediaURL)
         mediaObjects.append(mediaObject)
       }
+        
     default:
       print("unsupported media type")
     }
@@ -254,3 +339,13 @@ extension CreateTemplate: UIImagePickerControllerDelegate, UINavigationControlle
 }
 
 
+extension Data {
+    func getAVAsset() -> AVAsset {
+        let directory = NSTemporaryDirectory()
+        let fileName = "\(NSUUID().uuidString).mov"
+        let fullURL = NSURL.fileURL(withPathComponents: [directory, fileName])
+        try! self.write(to: fullURL!)
+        let asset = AVAsset(url: fullURL!)
+        return asset
+    }
+}
