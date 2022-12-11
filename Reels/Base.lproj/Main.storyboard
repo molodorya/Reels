@@ -331,7 +331,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1061,14 +1061,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="02T-m9-QXw">
-                                <rect key="frame" x="25" y="113" width="343" height="400"/>
+                                <rect key="frame" x="25" y="113" width="343" height="380"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="2WY-I5-VRK"/>
+                                    <constraint firstAttribute="height" constant="380" id="GFg-fM-zb5"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A7b-Uy-zFl">
-                                <rect key="frame" x="0.0" y="548" width="393" height="128"/>
+                                <rect key="frame" x="0.0" y="543" width="393" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="BKl-dV-OMZ"/>
@@ -1125,7 +1125,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="36c-hI-rkQ">
-                                <rect key="frame" x="20" y="701" width="353" height="60"/>
+                                <rect key="frame" x="20" y="696" width="353" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxh-Sl-Yt9">
                                         <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="60"/>
@@ -1142,10 +1142,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEz-mF-1d8">
                                         <rect key="frame" x="189.33333333333334" y="0.0" width="71.000000000000028" height="60"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="music.note.list" catalog="system">
-                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="WM8-dS-h92" kind="presentation" modalPresentationStyle="fullScreen" id="FJc-gj-wvI"/>
@@ -1153,10 +1153,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw5-xp-OoF">
                                         <rect key="frame" x="275.33333333333331" y="0.0" width="77.666666666666686" height="60"/>
-                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="checkmark" catalog="system">
-                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
@@ -1164,6 +1164,16 @@
                                     <constraint firstAttribute="height" constant="60" id="ql2-zZ-rYL"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l3R-Y3-8aw">
+                                <rect key="frame" x="24.999999999999996" y="499" width="14.333333333333332" height="18.999999999999943"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No track (beta)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDD-xk-rAO">
+                                <rect key="frame" x="44.333333333333336" y="498" width="115.33333333333331" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V2s-hk-IkR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1172,12 +1182,16 @@
                             <constraint firstItem="36c-hI-rkQ" firstAttribute="leading" secondItem="V2s-hk-IkR" secondAttribute="leading" constant="20" id="4ss-1X-iSk"/>
                             <constraint firstItem="02T-m9-QXw" firstAttribute="centerX" secondItem="WxR-GI-Eup" secondAttribute="centerX" id="5Mz-os-CLR"/>
                             <constraint firstItem="A7b-Uy-zFl" firstAttribute="leading" secondItem="V2s-hk-IkR" secondAttribute="leading" id="6bY-oC-eXA"/>
+                            <constraint firstItem="lDD-xk-rAO" firstAttribute="leading" secondItem="l3R-Y3-8aw" secondAttribute="trailing" constant="5" id="70t-4q-jZl"/>
                             <constraint firstItem="V2s-hk-IkR" firstAttribute="trailing" secondItem="02T-m9-QXw" secondAttribute="trailing" constant="25" id="71d-XE-Soh"/>
                             <constraint firstItem="A7b-Uy-zFl" firstAttribute="trailing" secondItem="V2s-hk-IkR" secondAttribute="trailing" id="JXJ-q5-1Us"/>
-                            <constraint firstItem="A7b-Uy-zFl" firstAttribute="top" secondItem="02T-m9-QXw" secondAttribute="bottom" constant="35" id="SgI-R9-Ek5"/>
+                            <constraint firstItem="A7b-Uy-zFl" firstAttribute="top" secondItem="02T-m9-QXw" secondAttribute="bottom" constant="50" id="SgI-R9-Ek5"/>
                             <constraint firstItem="02T-m9-QXw" firstAttribute="leading" secondItem="V2s-hk-IkR" secondAttribute="leading" constant="25" id="WS2-Jg-hZB"/>
+                            <constraint firstItem="l3R-Y3-8aw" firstAttribute="top" secondItem="02T-m9-QXw" secondAttribute="bottom" constant="5" id="Xmd-3B-8GY"/>
+                            <constraint firstItem="lDD-xk-rAO" firstAttribute="top" secondItem="02T-m9-QXw" secondAttribute="bottom" constant="5" id="cny-n8-WD3"/>
                             <constraint firstItem="02T-m9-QXw" firstAttribute="top" secondItem="V2s-hk-IkR" secondAttribute="top" constant="10" id="g2i-0R-lQN"/>
                             <constraint firstItem="36c-hI-rkQ" firstAttribute="top" secondItem="A7b-Uy-zFl" secondAttribute="bottom" constant="25" id="h5j-ao-8tp"/>
+                            <constraint firstItem="l3R-Y3-8aw" firstAttribute="leading" secondItem="V2s-hk-IkR" secondAttribute="leading" constant="25" id="zjC-0H-rEn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6RM-il-F9A">
@@ -1211,7 +1225,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cK-3B-Eoi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7576" y="1165"/>
+            <point key="canvasLocation" x="7574.8091603053435" y="1164.7887323943662"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6QD-74-bvc">
@@ -1656,6 +1670,7 @@
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="music.note" catalog="system" width="96" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>

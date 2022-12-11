@@ -48,7 +48,7 @@ class CreateTemplate: UIViewController {
         mediaObjects = CoreDataManager.shared.fetchMediaObjects()
         
     }
-    
+     
     
     
 //    private func playRandomVideo(in view: UIView) {
@@ -161,7 +161,7 @@ class CreateTemplate: UIViewController {
 
     
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,8 +176,48 @@ class CreateTemplate: UIViewController {
         
         fetchMediaObjects()
         playRandomVideo(in: previewTemplate)
+        
+    
+       
     }
     
+    func merge(arrayVideos: [AVAsset], completion:@escaping (URL?, Error?) -> ()) {
+        print(123)
+      let mainComposition = AVMutableComposition()
+      let compositionVideoTrack = mainComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+      compositionVideoTrack?.preferredTransform = CGAffineTransform(rotationAngle: .pi / 2)
+
+      let soundtrackTrack = mainComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+
+        var insertTime = CMTime.zero
+
+      for videoAsset in arrayVideos {
+        try! compositionVideoTrack?.insertTimeRange(CMTimeRangeMake(start: .zero, duration: videoAsset.duration), of: videoAsset.tracks(withMediaType: .video)[0], at: insertTime)
+        try! soundtrackTrack?.insertTimeRange(CMTimeRangeMake(start: .zero, duration: videoAsset.duration), of: videoAsset.tracks(withMediaType: .audio)[0], at: insertTime)
+
+        insertTime = CMTimeAdd(insertTime, videoAsset.duration)
+      }
+
+      let outputFileURL = URL(fileURLWithPath: NSTemporaryDirectory() + "merge.mp4")
+
+      let fileManager = FileManager()
+      try? fileManager.removeItem(at: outputFileURL)
+
+      let exporter = AVAssetExportSession(asset: mainComposition, presetName: AVAssetExportPresetHighestQuality)
+
+      exporter?.outputURL = outputFileURL
+      exporter?.outputFileType = AVFileType.mp4
+      exporter?.shouldOptimizeForNetworkUse = true
+
+      exporter?.exportAsynchronously {
+        if let url = exporter?.outputURL{
+            completion(url, nil)
+        }
+        if let error = exporter?.error {
+            completion(nil, error)
+        }
+      }
+    }
     
     
     
@@ -186,10 +226,29 @@ class CreateTemplate: UIViewController {
         if let mediaURL = VideoMain.urlsVideoChange,
            let image = mediaURL.videoPreviewThumnail(),
            let imageData = image.jpegData(compressionQuality: 1.0) {
-      
-          let mediaObject = CoreDataManager.shared.createMediaObect(imageData, videoURL: mediaURL)
-          mediaObjects.append(mediaObject)
+            
+            let mediaObject = CoreDataManager.shared.createMediaObect(imageData, videoURL: mediaURL)
+            mediaObjects.append(mediaObject)
+            
+            
+            print(mediaObject.videoData?.getAVAsset())
+            
+//            merge(arrayVideos: AVURLAsset.init(url: mediaURL as URL)) { url, error in
+//
+//            }
+            
+          
         }
+        
+        
+        
+        
+        
+        
+       
+        
+        
+        
     }
     
     
@@ -272,6 +331,18 @@ extension CreateTemplate: UICollectionViewDelegate, UICollectionViewDataSource {
         cell.mediaImageView.contentMode = .scaleAspectFill
         cell.configureCell(for: mediaObject)
         
+     
+//        let mediaOjbect = mediaObjects[indexPath.row]
+//        var videoURL = mediaOjbect.videoData?.getAVAsset()
+//        var array = [videoURL!]
+//
+//        array.append(videoURL!)
+//
+//        merge(arrayVideos: array, completion: {_,_ in
+//
+//        })
+       
+        
         return cell
     }
 }
@@ -286,6 +357,9 @@ extension CreateTemplate: UICollectionViewDelegateFlowLayout {
     guard let videoURL = mediaOjbect.videoData?.convertToURL() else {
       return
     }
+      
+    
+      
     let playerViewController = AVPlayerViewController()
     let player = AVPlayer(url: videoURL)
     playerViewController.player = player
@@ -349,3 +423,45 @@ extension Data {
         return asset
     }
 }
+
+
+class TemporaryMediaFile {
+    var url: URL?
+
+    init(withData: Data) {
+        let directory = FileManager.default.temporaryDirectory
+        let fileName = "\(NSUUID().uuidString).mov"
+        let url = directory.appendingPathComponent(fileName)
+        do {
+            try withData.write(to: url)
+            self.url = url
+        } catch {
+            print("Error creating temporary file: \(error)")
+        }
+    }
+
+    public var avAsset: AVAsset? {
+        if let url = self.url {
+            return AVAsset(url: url)
+        }
+
+        return nil
+    }
+
+    public func deleteFile() {
+        if let url = self.url {
+            do {
+                try FileManager.default.removeItem(at: url)
+                self.url = nil
+            } catch {
+                print("Error deleting temporary file: \(error)")
+            }
+        }
+    }
+
+    deinit {
+        self.deleteFile()
+    }
+}
+ 
+   
