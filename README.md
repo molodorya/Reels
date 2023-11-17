@@ -2,11 +2,13 @@
 Reels – коммерческое приложение для создание рилсов из шаблонов или самостоятельного с помощью встроенного видео-редактора
 
 
+![IMAGE 2023-11-17 16:06:19](https://github.com/molodorya/Reels/assets/55159339/7715af32-5844-40bb-88ed-379cad965456)
+![IMAGE 2023-11-17 16:06:21](https://github.com/molodorya/Reels/assets/55159339/3598050b-c45f-4c48-a888-02b5d8bd5387)
+![IMAGE 2023-11-17 16:06:23](https://github.com/molodorya/Reels/assets/55159339/8767395c-f492-4a19-943a-54bb7a04f740)
 
 
-![IMAGE 2023-11-17 16:00:25](https://github.com/molodorya/Reels/assets/55159339/c13071da-f0ff-41a6-b733-f125e7ca40df)
-![IMAGE 2023-11-17 16:00:48](https://github.com/molodorya/Reels/assets/55159339/4c0c87a4-7eb6-4441-a6b5-601f8991b567)
-![IMAGE 2023-11-17 16:00:51](https://github.com/molodorya/Reels/assets/55159339/cad74a10-e2b4-48b0-adaa-c9f3eadbd09d)
 
 
-Обновление устаревших шаблонов осуществляется с помощью отдельного API, пример: ![IMAGE 2023-11-17 16:01:58](https://github.com/molodorya/Reels/assets/55159339/e9b72b03-3399-44f3-aeaf-3cc127e64ca5)
+
+Обновление устаревших шаблонов осуществляется с помощью отдельного API, пример: ![IMAGE 2023-11-17 16:06:40](https://github.com/molodorya/Reels/assets/55159339/c55c05d2-027b-4995-be0f-ea21af3b0a5f)
+
