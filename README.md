@@ -9,4 +9,4 @@ Reels – коммерческое приложение для создание 
 ![IMAGE 2023-11-17 16:00:51](https://github.com/molodorya/Reels/assets/55159339/cad74a10-e2b4-48b0-adaa-c9f3eadbd09d)
 
 
-Обновление устаревщих шаблонов обновляется с помощью отдельного API ![IMAGE 2023-11-17 16:01:58](https://github.com/molodorya/Reels/assets/55159339/e9b72b03-3399-44f3-aeaf-3cc127e64ca5)
+Обновление устаревших шаблонов осуществляется с помощью отдельного API, пример: ![IMAGE 2023-11-17 16:01:58](https://github.com/molodorya/Reels/assets/55159339/e9b72b03-3399-44f3-aeaf-3cc127e64ca5)
